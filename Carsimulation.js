@@ -7,6 +7,16 @@ class Car {
       this.price = price;
       this.gas = gas;
     }
+
+    honk() {
+        console.log("Tuut tuut");
+        console.log(`Brand: ${this.brand}`);
+        console.log(`Model: ${this.model}`);
+        console.log(`Year: ${this.year}`);
+        console.log(`Color: ${this.color}`);
+        console.log(`Price: ${this.price}`);
+        console.log(`Gas: ${this.gas}`);
+      }
 }
 
 // Create car objects
