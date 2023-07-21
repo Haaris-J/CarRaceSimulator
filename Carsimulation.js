@@ -28,3 +28,19 @@ const cars = [
     new Car("Audi", "Q7", 2018, "Silver", 52000, 47),
     new Car("Kia", "Forte", 2020, "Blue", 21000, 56),
   ];
+
+  function simulateRace(cars, turns) {
+    for (let turn = 1; turn <= turns; turn++) {
+      console.log(`Race Turn ${turn}`);
+      cars.forEach((car) => {
+        let gasLoss = 5 + (new Date().getFullYear() - car.year);
+        car.gas = Math.max(car.gas - gasLoss, 0);
+        car.honk();
+        console.log(`Remaining Gas: ${car.gas} liters`);
+        console.log("----------------------------");
+      });
+    }
+  }
+
+const raceTurns = 7;
+simulateRace(cars, raceTurns);
