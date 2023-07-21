@@ -30,6 +30,8 @@ const cars = [
   ];
 
   function simulateRace(cars, turns) {
+    let outputDiv = document.getElementById("output");
+    let outputHTML = "";
     for (let turn = 1; turn <= turns; turn++) {
       console.log(`Race Turn ${turn}`);
       cars.forEach((car) => {
@@ -38,25 +40,6 @@ const cars = [
         car.honk();
         console.log(`Remaining Gas: ${car.gas} liters`);
         console.log("----------------------------");
-      });
-    }
-  }
-
-const raceTurns = 7;
-//Prints output in Console
-simulateRace(cars, raceTurns);
-
-// Function to simulate the race
-function displayOutput() {
-    let outputDiv = document.getElementById("output");
-    let outputHTML = "";
-
-    for (let turn = 1; turn <= raceTurns; turn++) {
-      outputHTML += `<h2>Race Turn ${turn}</h2>`;
-
-      cars.forEach((car) => {
-        let gasLoss = 5 + (new Date().getFullYear() - car.year);
-        car.gas = Math.max(car.gas - gasLoss, 0);
         outputHTML += "<p>";
         outputHTML += "Tuut tuut<br>";
         outputHTML += `Brand: ${car.brand}<br>`;
@@ -68,7 +51,9 @@ function displayOutput() {
         outputHTML += "</p>";
       });
     }
-
     outputDiv.innerHTML = outputHTML;
   }
-  displayOutput();
+
+const raceTurns = 7;
+//Prints output in Console
+simulateRace(cars, raceTurns);
