@@ -43,4 +43,32 @@ const cars = [
   }
 
 const raceTurns = 7;
+//Prints output in Console
 simulateRace(cars, raceTurns);
+
+// Function to simulate the race
+function displayOutput() {
+    let outputDiv = document.getElementById("output");
+    let outputHTML = "";
+
+    for (let turn = 1; turn <= raceTurns; turn++) {
+      outputHTML += `<h2>Race Turn ${turn}</h2>`;
+
+      cars.forEach((car) => {
+        let gasLoss = 5 + (new Date().getFullYear() - car.year);
+        car.gas = Math.max(car.gas - gasLoss, 0);
+        outputHTML += "<p>";
+        outputHTML += "Tuut tuut<br>";
+        outputHTML += `Brand: ${car.brand}<br>`;
+        outputHTML += `Model: ${car.model}<br>`;
+        outputHTML += `Year: ${car.year}<br>`;
+        outputHTML += `Color: ${car.color}<br>`;
+        outputHTML += `Price: ${car.price}<br>`;
+        outputHTML += `Gas: ${car.gas} liters<br>`;
+        outputHTML += "</p>";
+      });
+    }
+
+    outputDiv.innerHTML = outputHTML;
+  }
+  displayOutput();
